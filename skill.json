@@ -9,7 +9,7 @@
             "hello",
             "help"
           ],
-          "name": "Hello Class World",
+          "name": "Flick Master",
           "description": "Sample Full Description"
         }
       },
@@ -22,8 +22,13 @@
       "custom": {
         "endpoint": {
           "sourceDir": "lambda/py",
-          "uri": "ask-custom-helloworld-classes-default"
-        }
+          "uri": "ask-custom-Flick_Master-default"
+        },
+        "interfaces": [
+          {
+            "type": "ALEXA_PRESENTATION_APL"
+          }
+        ]
       }
     },
     "manifestVersion": "1.0"
