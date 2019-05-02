@@ -1,7 +1,7 @@
-hooks/*
+hooks/
 lambda/py
 __urls.json
 .ask
-.github/*
-.venv/*
-.vscode/*
+.github/
+.venv/
+.vscode/
