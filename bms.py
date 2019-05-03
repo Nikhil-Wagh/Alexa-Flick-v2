@@ -17,10 +17,11 @@ from requests import get
 from json import dump, load, loads
 from time import time
 from os import remove
+from pprint import pprint
 
 
 class BookMyShow():
-	baseUrl = "https://in.bookmyshow.com/"		
+	baseUrl = "https://in.bookmyshow.com"		
 	def __init__(self, city, event="movies"):
 		self.__city = city.lower()
 		self.__urls = dict()
@@ -43,11 +44,13 @@ class BookMyShow():
 			"pune": {
 				"name": "pune",
 				"all_movies_url": "https://in.bookmyshow.com/pune/movies",
-				"movie_urls": [{
-					"name": "<Movie Name>",
-					"booking_url": "<Booking URL with movie code>",
-					"image_url": "<Image URL>" 
-				}],
+				"movie_urls": {
+					"<Movie Name>": {
+						"name": "<Movie Name>",
+						"booking_url": "<Booking URL with movie code>",
+						"image_url": "<Image URL>" 
+					}
+				},
 				"validity": <Time in millis>
 			}
 		}
@@ -64,7 +67,7 @@ class BookMyShow():
 			print("Downloading new Data.")
 			self.__urls[self.__city] = {
 				"name": self.__city,
-				"all_movies_url": self.baseUrl + "{city}/{event}".format(city=self.__city, event="movies")
+				"all_movies_url": self.baseUrl + "/{city}/{event}".format(city=self.__city, event="movies")
 			}
 			bmsNowShowingContent = get(self.__urls[self.__city]['all_movies_url'])
 			if bmsNowShowingContent.status_code == 404:
@@ -73,7 +76,7 @@ class BookMyShow():
 				# See log file to correct this error
 			else:
 				soup = BeautifulSoup(bmsNowShowingContent.text, 'html5lib') 
-				self.__urls[self.__city]['movie_urls'] = list()
+				self.__urls[self.__city]['movie_urls'] = dict()
 				# Valid till next day
 				print(soup.title.string)
 				for tag in soup.find_all("div", {"class": "movie-card-container"}):
@@ -83,7 +86,7 @@ class BookMyShow():
 					movie['booking_url'] = tag.find('a', recursive=True)['href']
 					movie['image_url'] = img['data-src']
 					# print(movie)
-					self.__urls[self.__city]['movie_urls'].append(movie)
+					self.__urls[self.__city]['movie_urls'][movie['name']] = movie
 				self.__urls[self.__city]['validity'] = int(round(time()*1000)) + (1000 * 60 * 60 * 24)
 				if len(self.__urls[self.__city]['movie_urls']) <= 0:
 					raise Exception("Data not received from BookMyShow.com")
@@ -105,7 +108,7 @@ class BookMyShow():
 			return load(infile)
 
 	def isValid(self, a):
-		print(a['validity'], int(round(time()*1000)))
+		# print(a['validity'], int(round(time()*1000)))
 		if a['validity'] < int(round(time()*1000)):
 			return False
 		return True
@@ -115,15 +118,66 @@ class BookMyShow():
 		moviesNowShowing = []
 		try: 
 			self.getUrls()
-		except ValueError as e:
+		except ValueError as e: # City not Supported
 			return e
 		else: 
 			# print(self.__urls)
-			for movie in self.__urls[self.__city]['movie_urls']:
-				moviesNowShowing.append(movie['name'])
+			for movie in self.__urls[self.__city]['movie_urls'].keys():
+				moviesNowShowing.append(movie)
 			return moviesNowShowing
 
-	# def isMultipleDimesAndLangSupported(movie_name, city = self.city):
+	def getAvailableLanguageDimensions(self, movie_name):
+		"""
+		langAndDimes: {
+			"<Language>": {
+				"language": "<Language>",
+				"<Dimension>": {
+					"dimension": "<Dimension>",
+					"url": <booking_in_language_and_dimension>
+				}
+			} 
+		}
+		"""
+		try: 
+			self.getUrls()
+		except ValueError as e: # City not Supported
+			return e
+		else:
+			if movie_name not in self.__urls[self.__city]['movie_urls']:
+				raise Exception("Movie not found in {city}".format(city=self.__city))
+			booking_url = self.baseUrl + self.__urls[self.__city]['movie_urls'][movie_name]['booking_url']
+			print(booking_url)
+			movie_page_content = get(booking_url)
+			if movie_page_content.status_code != 200:
+				raise Exception("Network error, please try again")
+			
+			soup = BeautifulSoup(movie_page_content.text, 'html5lib')
+
+			langAndDimen = {}
+			tag = soup.find("div", {"id": "languageAndDimension"})
+			for langs in tag.find_all("div", {"class": "format-heading"}):
+				# print(langs.text.strip())
+				language = langs.text.strip()
+				langAndDimen[language] = {
+					"language": language
+				}
+				dimensions = langs.next_sibling.next_sibling
+				# print(dimensions)
+				for dimen in dimensions.find_all("a", {"class": "dimension-pill"}):
+					langAndDimen[language][dimen.text] = {
+						"dimension": dimen.text,
+						"url": dimen['href']
+					}
+				# 	print(dimen.text, dimen['href'])
+				# 	# print(dimen)
+				# 	dims.append({
+				# 		"type": dimen.text,
+				# 		"href": dimen['href']
+				# 	})
+				# lang_dimen[langs.text.strip()] = dims
+				# print()
+			return langAndDimen
+
 		
 
 	
@@ -131,10 +185,12 @@ def test():
 	city = "Pune"
 	bms = BookMyShow(city)
 	while True:
-		city = input("Enter city: ")	
+		# city = input("Enter city: ")	
 		bms.setCity(city)
-		print("City:", bms.getCity())
+		# print("City:", bms.getCity())
 		print(bms.getMoviesNowShowing())
+		movie_name = input("Movie name: ")
+		pprint(bms.getAvailableLanguageDimensions(movie_name), indent=4)
 		again = input("Again: ")
 		if again == "n":
 			break
