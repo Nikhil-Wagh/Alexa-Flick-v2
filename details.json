@@ -1,0 +1,519 @@
+{
+    "details": [
+        {
+            "name": "Carnival : Kalyaninagar (Gold)",
+            "timings": [
+                {
+                    "show_time": "08:00 PM",
+                    "seat_type": [
+                        {
+                            "name": "PREMIUM",
+                            "price": "390.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "GOLD",
+                            "price": "250.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "SILVER",
+                            "price": "210.00",
+                            "availability": "Available"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Cinepolis: VIP Seasons Mall, Pune",
+            "timings": [
+                {
+                    "show_time": "07:30 PM",
+                    "seat_type": [
+                        {
+                            "name": "VIP",
+                            "price": "750.00",
+                            "availability": "Available"
+                        }
+                    ]
+                },
+                {
+                    "show_time": "11:15 PM",
+                    "seat_type": [
+                        {
+                            "name": "VIP",
+                            "price": "750.00",
+                            "availability": "Available"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Cinepolis: WESTEND Mall Aundh, Pune",
+            "timings": [
+                {
+                    "show_time": "03:55 PM",
+                    "seat_type": [
+                        {
+                            "name": "NORMAL",
+                            "price": "380.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "EXECUTIVE",
+                            "price": "400.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "PREMIUM",
+                            "price": "420.00",
+                            "availability": "Available"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Fun Time Multiplex: Sinhagad Road",
+            "timings": [
+                {
+                    "show_time": "11:15 PM",
+                    "seat_type": [
+                        {
+                            "name": "GOLD",
+                            "price": "200.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "SILVER",
+                            "price": "180.00",
+                            "availability": "Available"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "INOX: Amanora Town Centre",
+            "timings": [
+                {
+                    "show_time": "05:15 PM",
+                    "seat_type": [
+                        {
+                            "name": "ROYALE",
+                            "price": "415.00",
+                            "availability": "Filling Fast"
+                        },
+                        {
+                            "name": "CLUB",
+                            "price": "304.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "EXECUTIVE",
+                            "price": "304.00",
+                            "availability": "Available"
+                        }
+                    ]
+                },
+                {
+                    "show_time": "09:00 PM",
+                    "seat_type": [
+                        {
+                            "name": "ROYALE",
+                            "price": "415.00",
+                            "availability": "Filling Fast"
+                        },
+                        {
+                            "name": "CLUB",
+                            "price": "304.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "EXECUTIVE",
+                            "price": "304.00",
+                            "availability": "Available"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "INOX: Bund Garden Road (Insignia)",
+            "timings": [
+                {
+                    "show_time": "05:00 PM",
+                    "seat_type": [
+                        {
+                            "name": "Royale",
+                            "price": "645.00",
+                            "availability": "Available"
+                        }
+                    ]
+                },
+                {
+                    "show_time": "08:45 PM",
+                    "seat_type": [
+                        {
+                            "name": "Royale",
+                            "price": "645.00",
+                            "availability": "Available"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "INOX: Dorabjees Royale Heritage Mall",
+            "timings": [
+                {
+                    "show_time": "03:45 PM",
+                    "seat_type": [
+                        {
+                            "name": "Royale Recliners",
+                            "price": "415.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Royale",
+                            "price": "295.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Club",
+                            "price": "276.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Executive",
+                            "price": "258.00",
+                            "availability": "Available"
+                        }
+                    ]
+                },
+                {
+                    "show_time": "04:45 PM",
+                    "seat_type": [
+                        {
+                            "name": "Royale Recliners",
+                            "price": "415.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Royale",
+                            "price": "295.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Club",
+                            "price": "276.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Executive",
+                            "price": "258.00",
+                            "availability": "Available"
+                        }
+                    ]
+                },
+                {
+                    "show_time": "06:15 PM",
+                    "seat_type": [
+                        {
+                            "name": "Royale Recliners",
+                            "price": "415.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Royale",
+                            "price": "295.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Club",
+                            "price": "276.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Executive",
+                            "price": "258.00",
+                            "availability": "Available"
+                        }
+                    ]
+                },
+                {
+                    "show_time": "07:30 PM",
+                    "seat_type": [
+                        {
+                            "name": "Royale Recliners",
+                            "price": "415.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Royale",
+                            "price": "295.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Club",
+                            "price": "276.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Executive",
+                            "price": "258.00",
+                            "availability": "Available"
+                        }
+                    ]
+                },
+                {
+                    "show_time": "08:30 PM",
+                    "seat_type": [
+                        {
+                            "name": "Royale Recliners",
+                            "price": "415.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Royale",
+                            "price": "295.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Club",
+                            "price": "276.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Executive",
+                            "price": "258.00",
+                            "availability": "Available"
+                        }
+                    ]
+                },
+                {
+                    "show_time": "10:00 PM",
+                    "seat_type": [
+                        {
+                            "name": "Royale Recliners",
+                            "price": "415.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Royale",
+                            "price": "295.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Club",
+                            "price": "276.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Executive",
+                            "price": "258.00",
+                            "availability": "Available"
+                        }
+                    ]
+                },
+                {
+                    "show_time": "11:05 PM",
+                    "seat_type": [
+                        {
+                            "name": "Royale Recliners",
+                            "price": "415.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Royale",
+                            "price": "276.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Club",
+                            "price": "239.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "Executive",
+                            "price": "222.00",
+                            "availability": "Available"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "INOX: Fun N Shop, Fatima Nagar",
+            "timings": [
+                {
+                    "show_time": "04:55 PM",
+                    "seat_type": [
+                        {
+                            "name": "PREMIERE",
+                            "price": "258.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "SILVER",
+                            "price": "258.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "EXECUTIVE",
+                            "price": "239.00",
+                            "availability": "Available"
+                        }
+                    ]
+                },
+                {
+                    "show_time": "08:40 PM",
+                    "seat_type": [
+                        {
+                            "name": "PREMIERE",
+                            "price": "258.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "SILVER",
+                            "price": "258.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "EXECUTIVE",
+                            "price": "239.00",
+                            "availability": "Available"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "PVR ICON: The Pavillion Pune",
+            "timings": [
+                {
+                    "show_time": "05:30 PM",
+                    "seat_type": [
+                        {
+                            "name": "CLASSIC..",
+                            "price": "372.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "PRIME..",
+                            "price": "402.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "RECLINER..",
+                            "price": "682.00",
+                            "availability": "Available"
+                        }
+                    ]
+                },
+                {
+                    "show_time": "08:30 PM",
+                    "seat_type": [
+                        {
+                            "name": "CLASSIC..",
+                            "price": "372.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "PRIME..",
+                            "price": "402.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "RECLINER..",
+                            "price": "682.00",
+                            "availability": "Available"
+                        }
+                    ]
+                },
+                {
+                    "show_time": "09:20 PM",
+                    "seat_type": [
+                        {
+                            "name": "CLASSIC..",
+                            "price": "372.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "PRIME..",
+                            "price": "402.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "RECLINER..",
+                            "price": "682.00",
+                            "availability": "Available"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "PVR: City One Mall, Pimpri",
+            "timings": [
+                {
+                    "show_time": "10:50 PM",
+                    "seat_type": [
+                        {
+                            "name": "CLASSIC..",
+                            "price": "230.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "PRIME..",
+                            "price": "280.00",
+                            "availability": "Available"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "PVR: Inorbit Mall, Pune",
+            "timings": [
+                {
+                    "show_time": "10:50 PM",
+                    "seat_type": [
+                        {
+                            "name": "CLASSIC",
+                            "price": "258.00",
+                            "availability": "Available"
+                        },
+                        {
+                            "name": "PRIME",
+                            "price": "276.00",
+                            "availability": "Available"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "PVR: Phoenix Market City, Pune (Gold)",
+            "timings": [
+                {
+                    "show_time": "10:35 PM",
+                    "seat_type": [
+                        {
+                            "name": "GOLD CLASSIC..",
+                            "price": "750.00",
+                            "availability": "Filling Fast"
+                        },
+                        {
+                            "name": "GOLD PRIME",
+                            "price": "800.00",
+                            "availability": "Available"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

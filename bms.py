@@ -5,7 +5,6 @@ getCity(city)
 getMoviesNowShowing()
 getMovieImageURL(movie_name)
 getMovieBookingURL(city, movie_name)
-isMultipleDimesAndLangSupported(city, movie_name)
 getMultipleDimensions(city, movie_name)
 getMultiplexes(city, movie_name)
 getVenueShowDetails(city, movie_name)
@@ -156,30 +155,69 @@ class BookMyShow():
 			langAndDimen = {}
 			tag = soup.find("div", {"id": "languageAndDimension"})
 			for langs in tag.find_all("div", {"class": "format-heading"}):
-				# print(langs.text.strip())
 				language = langs.text.strip()
 				langAndDimen[language] = {
 					"language": language
 				}
 				dimensions = langs.next_sibling.next_sibling
-				# print(dimensions)
 				for dimen in dimensions.find_all("a", {"class": "dimension-pill"}):
 					langAndDimen[language][dimen.text] = {
 						"dimension": dimen.text,
 						"url": dimen['href']
 					}
-				# 	print(dimen.text, dimen['href'])
-				# 	# print(dimen)
-				# 	dims.append({
-				# 		"type": dimen.text,
-				# 		"href": dimen['href']
-				# 	})
-				# lang_dimen[langs.text.strip()] = dims
-				# print()
 			return langAndDimen
 
 		
+	def getVenueShowDetails(self, url):
+		"""
+		"details": [{
+			"name": "Abhiruchi City Pride: Sinhagad Road",
+			"timings": [
+				"show_time": "06:30 PM",
+				"seat_type": [
+					{
+						"name": "ROYAL SOFA",
+						"price": "360.00",
+						"availability": "Sold Out"
+					}
+				]
+			]
+		}]
+		"""
 
+		theatres_page_content = get(url)
+		soup = BeautifulSoup(theatres_page_content.text, 'html5lib')
+		print(soup.title.string)
+
+		venue_data = []
+		venues = soup.find("ul", {"id": "venuelist"})
+		for venue in venues.find_all("li", {"class": "list"}):
+			venue_name = venue.find("a", {"class": "__venue-name"}).text.strip()
+			# print(venue_name)
+			current_venue = {}
+			current_venue['name'] = venue_name
+			current_venue['timings'] = []
+			for timings in venue.find_all("a", {"class": "__showtime-link"}):
+				# print(timings.text.strip(), timings['data-cat-popup'])
+				current_timing = {}
+				current_timing['show_time'] = timings.text.strip()[:8]
+				current_timing['seat_type'] = []
+
+				data_cat = loads(timings['data-cat-popup'])
+				for seat in data_cat:
+					current_seat = {}
+					current_seat["name"] = seat['desc']
+					current_seat['price'] = seat['price']
+					current_seat['availability'] = seat['availabilityText']
+					current_timing['seat_type'].append(current_seat)
+				current_venue['timings'].append(current_timing)
+			venue_data.append(current_venue)	
+		self.writeToFile("details.json", {"details": venue_data})
+		return {
+			"details": venue_data
+		}
+
+		
 	
 def test():
 	city = "Pune"
@@ -189,8 +227,12 @@ def test():
 		bms.setCity(city)
 		# print("City:", bms.getCity())
 		print(bms.getMoviesNowShowing())
-		movie_name = input("Movie name: ")
-		pprint(bms.getAvailableLanguageDimensions(movie_name), indent=4)
+		# movie_name = input("Movie name: ")
+		movie_name = "Avengers: Endgame"
+		langAndDimes = bms.getAvailableLanguageDimensions(movie_name)
+		pprint(langAndDimes, indent=4)
+		url = bms.baseUrl + langAndDimes['English']['2D']['url']
+		pprint(bms.getVenueShowDetails(url))
 		again = input("Again: ")
 		if again == "n":
 			break
